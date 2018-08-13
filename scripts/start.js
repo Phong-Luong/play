@@ -98,9 +98,11 @@ checkBrowsers(paths.appPath)
         return console.log(err);
       }
       if (isInteractive) {
-        // clearConsole();
+        clearConsole();
       }
+      // !!CHANGED!!
       console.log(chalk.cyan("⛳  playground starting...\n"));
+
       openBrowser(urls.localUrlForBrowser);
     });
 

@@ -8,21 +8,18 @@ const findMonorepo = require("react-dev-utils/workspaceUtils").findMonorepo;
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebook/create-react-app/issues/637
 const appDirectory = fs.realpathSync(process.cwd());
-// const appDirectory = fs.realpathSync(
-//   "/Users/romariclaurent/Development/eb/eb-factory/eb-components-playground"
-// );
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 const envPublicUrl = process.env.PUBLIC_URL;
 
-function ensureSlash(path, needsSlash) {
-  const hasSlash = path.endsWith("/");
+function ensureSlash(inputPath, needsSlash) {
+  const hasSlash = inputPath.endsWith("/");
   if (hasSlash && !needsSlash) {
-    return path.substr(path, path.length - 1);
+    return inputPath.substr(0, inputPath.length - 1);
   } else if (!hasSlash && needsSlash) {
-    return `${path}/`;
+    return `${inputPath}/`;
   } else {
-    return path;
+    return inputPath;
   }
 }
 
@@ -66,7 +63,6 @@ module.exports = {
   publicUrl: getPublicUrl(resolveApp("package.json")),
   servedPath: getServedPath(resolveApp("package.json"))
 };
-
 let checkForMonorepo = true;
 
 module.exports.srcPaths = [module.exports.appSrc];
@@ -84,5 +80,6 @@ if (checkForMonorepo) {
   }
   // !!CHANGED!! this allows components in src/components to be resolved by webpack
   module.exports.srcPaths.push(path.resolve(__dirname, "../"));
+
   module.exports.useYarn = module.exports.useYarn || mono.isYarnWs;
 }

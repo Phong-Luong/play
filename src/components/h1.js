@@ -1,7 +1,5 @@
-import styled from "react-emotion";
+import React from "react";
 
-export default styled("h1")`
-  position: relative;
-  display: table;
-  margin: 30px 0;
-`;
+const h1 = ({ props, children }) => <h1 {...props}>{children}</h1>;
+
+export default h1;

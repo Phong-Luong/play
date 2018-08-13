@@ -1,15 +1,10 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-node_modules
-build
-
+/node_modules
 
 # testing
 /coverage
-/mockapi/db.json
-mockapi/db.json
-.npmrc
 
 # production
 /build
@@ -20,10 +15,7 @@ mockapi/db.json
 .env.development.local
 .env.test.local
 .env.production.local
-.npmrc
-/eb-portal-graphql/.tmp
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-scripts/tmp/*

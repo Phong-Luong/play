@@ -2,7 +2,7 @@
 
 An unopiated styleguide engine for react. **`play`** does the plumbing **`you`** do the styling!
 
-Features
+## Features
 
 * Authoring documentation un markdown (mdx)
 * Props definition extraction
@@ -17,8 +17,6 @@ play init # setup the minimal file structure
 play # runs your styleguide server
 play build # build static assets
 ```
-
-## Inspiration
 
 ## Inspiration
 
