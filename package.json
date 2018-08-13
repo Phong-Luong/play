@@ -1,6 +1,6 @@
 {
   "name": "@digitalstudio/play",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "main": "./src/index.js",
   "dependencies": {
     "@babel/core": "7.0.0-beta.44",
@@ -24,7 +24,6 @@
     "dotenv": "5.0.0",
     "dotenv-expand": "4.2.0",
     "emotion": "^9.2.6",
-    "emotion-theming": "^9.2.6",
     "eslint": "4.15.0",
     "eslint-config-react-app": "3.0.0-next.66cc7a90",
     "eslint-loader": "1.9.0",

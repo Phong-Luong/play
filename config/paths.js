@@ -42,16 +42,25 @@ function getServedPath(appPackageJson) {
   return ensureSlash(servedUrl, true);
 }
 
+//!!CHANGED!!
+const getAppIndexJs = appPackageJson =>
+  require(appPackageJson).play.index + "/index.js";
+
+//!!CHANGED!!
+const getAppHtml = appPackageJson =>
+  require(appPackageJson).play.index + "/index.html";
+
 // config after eject: we're in ./config/
 module.exports = {
+  //!!CHANGED!!
   dotenv: resolveApp(".env"),
   appPath: resolveApp("."),
   appBuild: resolveApp("playground/build"),
   appPublic: resolveApp("playground/public"),
-  appHtml: resolveApp("playground/public/index.html"),
-  appIndexJs: resolveApp("playground/src/index.js"),
+  appHtml: getAppHtml(resolveApp("package.json")),
+  appIndexJs: getAppIndexJs(resolveApp("package.json")),
   appPackageJson: resolveApp("package.json"),
-  appSrc: resolveApp("playground/src"),
+  appSrc: resolveApp("playground"),
   testsSetup: resolveApp("src/setupTests.js"),
   appNodeModules: resolveApp("node_modules"),
   publicUrl: getPublicUrl(resolveApp("package.json")),
